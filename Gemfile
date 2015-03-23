@@ -60,5 +60,6 @@ group :development, :test do
   gem 'rails_best_practices'
   gem 'rails-footnotes'
   gem 'rails_view_annotator'
+  gem 'annotate'
 end
 
