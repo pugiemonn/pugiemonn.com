@@ -8,7 +8,15 @@
         - @event.errors.full_messages.each do |message|
           li
             = message
-  .field
-    = f.text_field :event_url
+  .row
+    .input-field.col.s12
+      = f.text_field :title
+      label for="title" "タイトル"
+
+  .row
+    .input-field.col.s12
+      = f.text_field :event_url
+      label for="event_url" "URL"
+
   .actions
-    = f.submit "イベントを作成"
+    = f.submit "イベントを作成", class: "btn"
