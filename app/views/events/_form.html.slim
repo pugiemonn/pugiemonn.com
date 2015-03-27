@@ -17,6 +17,10 @@
     .input-field.col.s12
       = f.text_field :event_url
       label for="event_url" "URL"
+  .row
+    .input-field.col.s12
+      = f.text_field :tag_list
+      label for="tag_list" "タグリスト"
 
   .actions
     = f.submit "イベントを作成", class: "btn"

@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
 
   def tag_list=(names)
     self.tags = names.split(",").map do |t|
-      Tag.where(name: t.strip).first_or_crearte!
+      Tag.where(name: t.strip).first_or_create!
     end
   end
 end
