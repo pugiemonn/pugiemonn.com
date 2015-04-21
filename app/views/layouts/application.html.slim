@@ -6,11 +6,13 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   body
     header style="margin-top:300px;"
       .container
       .collapse.navbar-collapse
         ul.nav
+          li = link_to 'イベントを作る', new_event_path
           - if logged_in?
             li = link_to 'ログアウト', logout_path
           - else
@@ -20,5 +22,9 @@ html
       - if flash[:notice]
         .alert.alert-success
           = flash[:notice]
+
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash[:alert]
 
     = yield

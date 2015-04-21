@@ -21,6 +21,11 @@
 #
 
 class Event < ActiveRecord::Base
+  validates :title, length: { maximum: 50 }, presence: true
+  validates :place, length: { maximum: 100 }, presence: true
+  validates :catch, length: { maximum: 2000 }, presence: true
+  validates :started_at, presence: true
+  validates :ended_at, presence: true
   validates :event_url, presence: true, uniqueness: true
 
   has_many :taggings
@@ -43,5 +48,11 @@ class Event < ActiveRecord::Base
     self.tags = names.split(",").map do |t|
       Tag.where(name: t.strip).first_or_create!
     end
+  end
+
+  private
+
+  def start_time_should_be_before_end_time
+    errors.add(:start_time, 'は終了時間よりも前に設定してください')
   end
 end

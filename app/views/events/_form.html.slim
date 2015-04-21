@@ -1,3 +1,5 @@
+- now = Time.zone.now
+
 = form_for(@event) do |f|
   - if @event.errors.any?
     #error_explanation
@@ -12,6 +14,22 @@
     .input-field.col.s12
       = f.text_field :title
       label for="title" "タイトル"
+
+  .row
+    .input-field.col.s12
+      = f.label :place
+      = f.text_field :place, class: 'form-control'
+
+  .row
+    div
+      label for="started_at" "started~at"
+      div = f.datetime_select :started_at, start_year: now.year, end_year: now.year + 1
+
+
+  .row
+    .input-field.col.s12
+      = f.label :ended_at
+      = f.text_field :place, class: 'form-control'
 
   .row
     .input-field.col.s12
