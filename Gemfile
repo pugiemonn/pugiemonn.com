@@ -27,7 +27,7 @@ gem 'events_jp'
 gem 'activerecord-import'
 
 gem 'slim-rails'
-gem 'materialize-sass'
+gem 'semantic-ui-sass'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
