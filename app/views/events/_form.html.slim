@@ -1,44 +1,39 @@
 - now = Time.zone.now
 
-= form_for(@event) do |f|
-  - if @event.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@event.errors.count, "error")
-        |  prohibited this event from being saved:
-      ul
-        - @event.errors.full_messages.each do |message|
-          li
-            = message
-  .row
-    .input-field.col.s12
-      = f.text_field :title
-      label for="title" "タイトル"
-
-  .row
-    .input-field.col.s12
+.ui.attached.segment
+  = form_for @event, :html => { class: "ui form"} do |f|
+    - if @event.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@event.errors.count, "error")
+          |  prohibited this event from being saved:
+        ul
+          - @event.errors.full_messages.each do |message|
+            li
+              = message
+    .field
+      = f.label :title
+      = f.text_field :title, placeholder: "タイトル"
+    .field
       = f.label :place
-      = f.text_field :place, class: 'form-control'
-
-  .row
-    div
-      label for="started_at" "started~at"
-      div = f.datetime_select :started_at, start_year: now.year, end_year: now.year + 1
-
-
-  .row
-    .input-field.col.s12
+      = f.text_field :place, placeholder: :place
+    .field
+      = f.label :started_at
+      .five.fields
+        = f.datetime_select :started_at, {start_year: now.year, end_year: now.year + 1}, { :class =>  "hoge" }
+    .field
       = f.label :ended_at
-      = f.text_field :place, class: 'form-control'
-
-  .row
-    .input-field.col.s12
+      .five.fields
+        = f.datetime_select :ended_at, start_year: now.year, end_year: now.year + 1
+    .field
+      = f.label :catch
+      = f.text_area :catch, class: "form-control", row:5
+    .field
       = f.text_field :event_url
       label for="event_url" "URL"
-  .row
-    .input-field.col.s12
-      = f.text_field :tag_list
-      label for="tag_list" "タグリスト"
-
-  .actions
-    = f.submit "イベントを作成", class: "btn"
+    .row
+      .input-field.col.s12
+        = f.text_field :tag_list
+        label for="tag_list" "タグリスト"
+    .actions
+      = f.submit "イベントを作成", class: "btn"
