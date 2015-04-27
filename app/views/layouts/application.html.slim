@@ -12,8 +12,8 @@ html
       .container
       .collapse.navbar-collapse
         ul.nav
-          li = link_to 'イベントを作る', new_event_path
           - if logged_in?
+            li = link_to 'イベントを作る', new_event_path
             li = link_to 'ログアウト', logout_path
           - else
             li = link_to 'Twitterでログイン', '/auth/twitter'
