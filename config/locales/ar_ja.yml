@@ -4,8 +4,9 @@ ja:
       event: イベント
     attributes:
       event:
+        catch: 内容
+        ended_at: 終了内容
         name: 名前
         place: 場所
         started_at: 開始時間
-        ended_at: 終了内容
-        catch: 内容
+        title: タイトル

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate, :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, except: [:index, :show]
 
   # GET /events
   # GET /events.json
