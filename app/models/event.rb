@@ -31,6 +31,8 @@ class Event < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  belongs_to :owner, class_name: 'User'
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).events
   end

@@ -1,8 +1,32 @@
 p#notice
   = notice
-h1
+h1.ui.dividing.header
   = @event.title
-p
+- if @event.owner
+  p.ui.top.attached.header
+    主催者
+  p.ui.attached.segment
+    = link_to "http://twitter.com/#{@event.owner.nickname}" do
+      = image_tag @event.owner.image_url
+      = "@#{@event.owner.nickname}"
+
+
+p.ui.attached.header
+  |
+    開催時間
+p.ui.attached.segment
+  = @event.started_at.strftime('%Y/%m/%d %H:%M')
+  span  -
+  = @event.ended_at.strftime('%Y/%m/%d %H:%M')
+p.ui.attached.header
+  |
+    開催場所
+p.ui.attached.segment
+  = @event.place
+p.ui.attached.header
+  |
+    イベント内容
+p.ui.attached.segment
   = @event.catch
 p
   = link_to 'リンク', @event.event_url, target: "_blank"
