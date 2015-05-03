@@ -52,6 +52,11 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def created_by?(user)
+    return false unless user
+    owner_id == user.id
+  end
+
   private
 
   def start_time_should_be_before_end_time

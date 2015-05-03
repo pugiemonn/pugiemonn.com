@@ -36,4 +36,4 @@
         = f.text_field :tag_list
         label for="tag_list" "タグリスト"
     .actions
-      = f.submit "イベントを作成", class: "btn"
+      = f.submit "イベントを作成", class: "ui blue button", data: { disable_with: "更新中" }

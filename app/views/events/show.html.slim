@@ -31,7 +31,8 @@ p.ui.attached.segment
 p
   = link_to 'リンク', @event.event_url, target: "_blank"
 
-= link_to 'Edit', edit_event_path(@event)
+- if @event.created_by?(current_user)
+  = link_to 'イベントを編集する', edit_event_path(@event), class: 'ui button'
 |  | 
 = link_to 'Back', events_path
 
