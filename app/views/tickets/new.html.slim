@@ -1,0 +1,12 @@
+- if logged_in?
+  = form_for @event.tickets.build, url: event_tickets_path(@event) do |f|
+    .header
+      | 参加コメント
+    .content
+      .ui.form
+        .field
+          = f.text_area :comment, class: ""
+    .actions
+      = f.button "送信", class: "ui positive right button"
+- else
+  = link_to "参加する", new_event_ticket_path(@event), class: "ui right button"

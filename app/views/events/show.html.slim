@@ -33,6 +33,12 @@ p
 
 - if @event.created_by?(current_user)
   = link_to 'イベントを編集する', edit_event_path(@event), class: 'ui button'
-|  | 
+|
 = link_to 'Back', events_path
+|
+- if logged_in?
+  = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
+- else
+  = link_to "参加する", new_event_ticket_path(@event), class: "ui right button"
+
 
