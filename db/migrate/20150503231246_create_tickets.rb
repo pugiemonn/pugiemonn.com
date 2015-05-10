@@ -6,8 +6,8 @@ class CreateTickets < ActiveRecord::Migration
       t.string :comment
       t.timestamps null: false
     end
-    add_foreign_key :tickets, :users
-    add_foreign_key :tickets, :events
+    #add_foreign_key :tickets, :users
+    #add_foreign_key :tickets, :events
 
     add_index :tickets, [:user_id, :event_id], unique: true
     add_index :tickets, [:event_id, :user_id], unique: true
