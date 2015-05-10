@@ -76,6 +76,4 @@ ActiveRecord::Schema.define(version: 20150503231246) do
 
   add_foreign_key "taggings", "events"
   add_foreign_key "taggings", "tags"
-  add_foreign_key "tickets", "events"
-  add_foreign_key "tickets", "users"
 end
