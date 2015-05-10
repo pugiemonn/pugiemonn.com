@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   # GET /events/new

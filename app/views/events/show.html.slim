@@ -36,9 +36,23 @@ p
 |
 = link_to 'Back', events_path
 |
-- if logged_in?
+- if @tickets
+
+- elsif logged_in?
   = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
 - else
   = link_to "参加する", new_event_ticket_path(@event), class: "ui right button"
+
+hr
+div 参加者
+.hoge
+  ul
+    - @tickets.each do |ticket|
+      li
+        #- binding.pry
+        = link_to url_for_twitter(ticket.user) do
+          = image_tag ticket.user.image_url, width: 20, height: 20
+          = "@#{ticket.user.nickname}"
+        = ticket.comment
 
 
