@@ -28,6 +28,15 @@ p.ui.attached.header
     イベント内容
 p.ui.attached.segment
   = @event.catch
+p.ui.attached.header
+  | 参加者
+ul.ui.attached.segment
+  - @tickets.each do |ticket|
+    li
+      = link_to url_for_twitter(ticket.user) do
+        = image_tag ticket.user.image_url, width: 20, height: 20
+        = "@#{ticket.user.nickname}"
+      = ticket.comment
 p
   = link_to 'リンク', @event.event_url, target: "_blank"
 
@@ -36,23 +45,10 @@ p
 |
 = link_to 'Back', events_path
 |
-- if @tickets
-
+- if @ticket
+  = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: 'negative ui button'
 - elsif logged_in?
   = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
 - else
   = link_to "参加する", new_event_ticket_path(@event), class: "ui right button"
-
-hr
-div 参加者
-.hoge
-  ul
-    - @tickets.each do |ticket|
-      li
-        #- binding.pry
-        = link_to url_for_twitter(ticket.user) do
-          = image_tag ticket.user.image_url, width: 20, height: 20
-          = "@#{ticket.user.nickname}"
-        = ticket.comment
-
 

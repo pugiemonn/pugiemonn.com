@@ -12,11 +12,18 @@ class TicketsController < ApplicationController
       t.event_id = params[:event_id]
       t.comment  = params[:ticket][:comment]
     end
+
     if ticket.save
       flash[:notice] = 'イベントに参加します'
       redirect_to event_path(params[:event_id])
     else
-      render json: { messages: ticket.errors.full_messages }, status: 422
+      #render json: { messages: ticket.errors.full_messages }, status: 422
     end
+  end
+
+  def destroy
+    ticket = current_user.tickets.find_by!(event_id: params[:event_id])
+    ticket.destroy!
+    redirect_to event_path(params[:event_id]), notice: 'このイベントキャンセルしました'
   end
 end
