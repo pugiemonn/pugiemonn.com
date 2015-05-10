@@ -6,9 +6,12 @@ h1.ui.dividing.header
   p.ui.top.attached.header
     主催者
   p.ui.attached.segment
-    = link_to "http://twitter.com/#{@event.owner.nickname}" do
-      = image_tag @event.owner.image_url
-      = "@#{@event.owner.nickname}"
+    - if @event.owner
+      = link_to "http://twitter.com/#{@event.owner.nickname}" do
+        = image_tag @event.owner.image_url
+        = "@#{@event.owner.nickname}"
+    - else
+      退会したユーザーです。
 
 
 p.ui.attached.header
@@ -32,11 +35,14 @@ p.ui.attached.header
   | 参加者
 ul.ui.attached.segment
   - @tickets.each do |ticket|
-    li
-      = link_to url_for_twitter(ticket.user) do
-        = image_tag ticket.user.image_url, width: 20, height: 20
-        = "@#{ticket.user.nickname}"
-      = ticket.comment
+    - if ticket.user
+      li
+        = link_to url_for_twitter(ticket.user) do
+          = image_tag ticket.user.image_url, width: 20, height: 20
+          = "@#{ticket.user.nickname}"
+        = ticket.comment
+    - else
+      退会したユーザーです。
 p
   = link_to 'リンク', @event.event_url, target: "_blank"
 
