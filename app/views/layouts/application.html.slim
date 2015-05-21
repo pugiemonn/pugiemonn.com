@@ -10,14 +10,14 @@ html
   body
     header
       .container
-      .collapse.navbar-collapse
-        ul.nav
+        .ui.menu
           - if logged_in?
-            li = link_to 'イベントを作る', new_event_path
-            li = link_to '退会', retire_user_path
-            li = link_to 'ログアウト', logout_path
+            = link_to 'イベントを作る', new_event_path, class: 'item'
+            /= link_to '退会', retire_user_path, class: 'item'
+            .right.menu
+              = link_to 'ログアウト', logout_path, class: 'item'
           - else
-            li = link_to 'Twitterでログイン', '/auth/twitter'
+            = link_to 'Twitterでログイン', '/auth/twitter', class: 'item'
 
     .container
       - if flash[:notice]
