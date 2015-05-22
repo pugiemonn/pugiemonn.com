@@ -10,14 +10,19 @@ html
   body
     header
       .container
-        .ui.menu
+        .ui.labeled.icon.menu
           - if logged_in?
-            = link_to 'イベントを作る', new_event_path, class: 'item'
+            = link_to new_event_path, class: 'item' do
+              i.plus.icon
+              | イベントを作る
             /= link_to '退会', retire_user_path, class: 'item'
-            .right.menu
-              = link_to 'ログアウト', logout_path, class: 'item'
+            = link_to logout_path, class: 'item'
+              i.sign.out.icon
+              | ログアウト
           - else
-            = link_to 'Twitterでログイン', '/auth/twitter', class: 'item'
+            = link_to '/auth/twitter', class: 'item' do
+              i.twitter.icon
+              | ログイン
 
     .container
       - if flash[:notice]
