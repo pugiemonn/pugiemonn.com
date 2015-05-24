@@ -29,11 +29,10 @@
       = f.label :catch
       = f.text_area :catch, class: "form-control", row:5
     .field
+      = f.label "URL"
       = f.text_field :event_url
-      label for="event_url" "URL"
-    .row
-      .input-field.col.s12
-        = f.text_field :tag_list
-        label for="tag_list" "タグリスト"
+    .field
+      = f.label "タグリスト"
+      = f.text_field :tag_list
     .actions
       = f.submit "イベントを作成", class: "ui blue button", data: { disable_with: "更新中" }
