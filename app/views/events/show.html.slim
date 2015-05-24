@@ -33,18 +33,24 @@ p.ui.attached.segment
   = @event.catch
 p.ui.attached.header
   | 参加者
+.ui.attached.segment
+  .ui.divided.relaxed.horizontal.list
+    - @tickets.each do |ticket|
+      - if ticket.user
+        .item
+          = link_to url_for_twitter(ticket.user) do
+            = image_tag ticket.user.image_url, width: 20, height: 20, class: 'ui top aligned avatar image'
+            .content
+              .header = "@#{ticket.user.nickname}"
+              = ticket.comment
+      - else
+        退会したユーザーです。
+p.ui.attached.header
+  | URL
 ul.ui.attached.segment
-  - @tickets.each do |ticket|
-    - if ticket.user
-      li
-        = link_to url_for_twitter(ticket.user) do
-          = image_tag ticket.user.image_url, width: 20, height: 20
-          = "@#{ticket.user.nickname}"
-        = ticket.comment
-    - else
-      退会したユーザーです。
-p
   = link_to 'リンク', @event.event_url, target: "_blank"
+
+br
 
 - if @event.created_by?(current_user)
   = link_to 'イベントを編集する', edit_event_path(@event), class: 'ui button'
