@@ -4,7 +4,7 @@ h1.ui.dividing.header
   = @event.title
 - if @event.owner
   p.ui.top.attached.header
-    主催者
+    | 主催者
   p.ui.attached.segment
     - if @event.owner
       = link_to "http://twitter.com/#{@event.owner.nickname}" do
