@@ -38,11 +38,11 @@ p.ui.attached.header
     - @tickets.each do |ticket|
       - if ticket.user
         .item
-          = link_to url_for_twitter(ticket.user) do
-            = image_tag ticket.user.image_url, width: 20, height: 20, class: 'ui top aligned avatar image'
-            .content
-              .header = "@#{ticket.user.nickname}"
-              = ticket.comment
+          = image_tag ticket.user.image_url, width: 20, height: 20, class: 'ui top aligned avatar image'
+          .content
+            .header
+              = link_to "@#{ticket.user.nickname}", url_for_twitter(ticket.user)
+            = ticket.comment
       - else
         退会したユーザーです。
 p.ui.attached.header
