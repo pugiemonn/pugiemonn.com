@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate, :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, except: [:index, :show]
+  PER = 10
 
   # GET /events
   # GET /events.json
@@ -8,7 +9,7 @@ class EventsController < ApplicationController
     if params[:tag]
 
     end
-    @events = Event.order(id: :desc).limit(10)
+    @events = Event.page(params[:page]).per(PER).order(id: :desc).limit(10)
   end
 
   # GET /events/1

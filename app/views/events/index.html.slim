@@ -10,3 +10,4 @@
         = link_to 'Edit', edit_event_path(event), class: "right floated compact ui blue button"
         .content
           = link_to event.title, event, class: "header"
+  = paginate @events
