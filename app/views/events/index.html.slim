@@ -6,8 +6,6 @@
   .ui.divided.selection.list
     - @events.each do |event|
       .item
-        = link_to '削除', event, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "right floated compact ui blue button"
-        = link_to 'Edit', edit_event_path(event), class: "right floated compact ui blue button"
         .content
           = link_to event.title, event, class: "header"
   = paginate @events
