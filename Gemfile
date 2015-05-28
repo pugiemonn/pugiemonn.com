@@ -58,7 +58,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'better_errors'
-  gem 'bullet'
+  #gem 'bullet'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rack-mini-profiler'

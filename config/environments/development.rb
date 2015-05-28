@@ -40,6 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Bullet settings
+=begin
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
@@ -51,4 +52,5 @@ Rails.application.configure do
     Bullet.add_footer = true
     Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
   end
+=end
 end
