@@ -6,6 +6,7 @@
   .ui.divided.selection.list
     - @events.each do |event|
       .item
+        = image_tag event.owner.image_url, class: 'ui avatar image'
         .content
           = link_to event.title, event, class: "header"
   = paginate @events
