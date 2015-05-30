@@ -17,15 +17,16 @@ class Batch::GetApi
       puts "人数限界 - #{e.limit}"
       puts "accepted - #{e.accepted}"
       puts "待ち人数 - #{e.waiting}"
+
       event_array << Event.new(
           title: "#{e.title}",
           service: "#{e.service}",
           address: "#{e.address}",
           event_url: "#{e.event_url}",
-          catch: "#{e.catch}",
+          catch: (e.catch).blank? ? "本文が入力されていません。" : "#{e.catch}",
           started_at: "#{e.started_at}",
           ended_at: "#{e.ended_at}",
-          place: "#{e.place}",
+          place: (e.place).blank? ? "開催場所が指定されていません。" : "#{e.place}",
           lon: "#{e.lon}",
           lat: "#{e.lat}",
           limit: "#{e.limit}",
@@ -36,3 +37,4 @@ class Batch::GetApi
     Event.import event_array
   end
 end
+
