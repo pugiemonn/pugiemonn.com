@@ -6,7 +6,16 @@
   .ui.divided.selection.list
     - @events.each do |event|
       .item
-        = image_tag event.owner.image_url, class: 'ui avatar image'
+        - if event.owner
+          = image_tag event.owner.image_url, class: 'ui avatar image'
+        - elsif event.service == "connpass"
+          img src="https://pbs.twimg.com/profile_images/540067771736813568/tIWMSAZF_bigger.png" class="ui avatar image"
+        - elsif event.service == "atnd"
+          img src="https://pbs.twimg.com/profile_images/451943063305203713/VlH6fFDv_bigger.png" class="ui avatar image"
+        - elsif event.service == "zusaar"
+          img src="https://pbs.twimg.com/profile_images/1244981480/zusaar_icon_bigger.jpg" class="ui avatar image"
+        - elsif event.service == "doorkeeper"
+          img src="https://pbs.twimg.com/profile_images/1231447879/dk_bigger.png" class="ui avatar image"
         .content
           = link_to event.title, event, class: "header"
   = paginate @events
