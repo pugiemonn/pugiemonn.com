@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
   validates :catch, length: { maximum: 2000 }, presence: true
   validates :started_at, presence: true
   validates :ended_at, presence: true
-  validates :event_url, presence: true, uniqueness: true
+  #validates :event_url, presence: true, uniqueness: true
 
   has_many :taggings
   has_many :tags, through: :taggings
