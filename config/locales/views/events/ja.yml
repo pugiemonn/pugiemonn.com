@@ -2,5 +2,10 @@ ja:
   events:
     index:
       event_list: イベントリスト
+    new:
+      new_event: 新しいイベントをつくる
     show:
       back: もどる
+    form:
+      place: 場所
+      title: タイトル

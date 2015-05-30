@@ -13,10 +13,10 @@
               = message
     .field
       = f.label :title
-      = f.text_field :title, placeholder: "タイトル"
+      = f.text_field :title, placeholder: t(".title")
     .field
       = f.label :place
-      = f.text_field :place, placeholder: :place
+      = f.text_field :place, placeholder: t(".place")
     .field
       = f.label :started_at
       .five.fields
@@ -28,11 +28,12 @@
     .field
       = f.label :catch
       = f.text_area :catch, class: "form-control", row:5
-    .field
-      = f.label "URL"
-      = f.text_field :event_url
+    /.field
+      /= f.label "URL"
+      /= f.text_field :event_url
     .field
       = f.label "タグリスト"
       = f.text_field :tag_list
+      = f.hidden_field :service
     .actions
       = f.submit "イベントを作成", class: "ui blue button", data: { disable_with: "更新中" }

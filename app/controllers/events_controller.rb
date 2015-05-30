@@ -17,13 +17,14 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @ticket = current_user && current_user.tickets.find_by(event_id: params[:id])
-    @tickets = @event.tickets.order(:created_at)
-    #@tickets = @event.tickets.includes(:user).order(:created_at)
+    #@tickets = @event.tickets.order(:created_at)
+    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   # GET /events/new
   def new
     @event = current_user.created_events.build
+    @event.service = "pugiemonn"
   end
 
   # POST /events
@@ -31,6 +32,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.created_events.build(event_params)
 
+    #binding.pry
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: '作成しました' }
@@ -82,6 +84,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :tag_list)
+      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :tag_list, :service)
     end
 end
