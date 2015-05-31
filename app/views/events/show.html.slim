@@ -38,15 +38,15 @@ p.ui.attached.header
   | 参加
 p.ui.attached.segment
   - if @event.service != "pugiemonn"
-      - if @event.event_url
-        = link_to t(".join"), @event.event_url, class: "ui blue button"
-  - else
-    - if @ticket
-      = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: 'ui button'
-    - elsif logged_in?
-      = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
+    - if @event.event_url
+      = link_to t(".join"), @event.event_url, class: "ui blue button"
     - else
-      = link_to "参加する", new_event_ticket_path(@event), class: "ui button"
+      - if @ticket
+        = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: 'ui button'
+      - elsif logged_in?
+        = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
+      - else
+        = link_to "参加する", new_event_ticket_path(@event), class: "ui button"
 p.ui.attached.header
   | 参加者
 .ui.attached.segment
