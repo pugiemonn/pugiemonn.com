@@ -6,6 +6,7 @@ ja:
       new_event: 新しいイベントをつくる
     show:
       back: もどる
+      join: 参加する
     form:
       place: 場所
       title: タイトル
