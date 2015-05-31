@@ -12,10 +12,10 @@ html
     header
       .container
         .ui.labeled.icon.menu
+          = link_to root_path, class: 'item' do
+            i.home.icon
+            | ホーム
           - if logged_in?
-            = link_to root_path, class: 'item' do
-              i.home.icon
-              | ホーム
             = link_to new_event_path, class: 'item' do
               i.plus.icon
               | イベントを作る
