@@ -27,12 +27,23 @@ class Event < ActiveRecord::Base
   validates :started_at, presence: true
   validates :ended_at, presence: true
   #validates :event_url, presence: true, uniqueness: true
+  PER = 10
 
   has_many :taggings
   has_many :tags, through: :taggings
   has_many :tickets
 
   belongs_to :owner, class_name: 'User'
+
+  def created_by?(user)
+    return false unless user
+    owner_id == user.id
+  end
+
+  # イベント一覧を取得
+  def self.event_lists(params)
+    Event.page(params[:page]).per(PER).order(id: :desc).limit(10)
+  end
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).events
@@ -51,11 +62,6 @@ class Event < ActiveRecord::Base
     self.tags = names.split(",").map do |t|
       Tag.where(name: t.strip).first_or_create!
     end
-  end
-
-  def created_by?(user)
-    return false unless user
-    owner_id == user.id
   end
 
   private
