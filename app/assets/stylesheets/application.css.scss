@@ -23,6 +23,12 @@
   margin: 1.5em;
 }
 
+@media(max-width: 720px) {
+  .container {
+    margin: 0.8em;
+  }
+}
+
 .footer {
   background-color: #FFF;
   border: 1px solid #d4d4d5;
