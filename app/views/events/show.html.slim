@@ -3,19 +3,20 @@ p#notice
 h1.ui.dividing.header
   = @event.title
 - if @event.owner
-  p.ui.top.attached.header
+  .ui.top.attached.header
     | 主催者
-  p.ui.attached.segment
-    - if @event.owner
-      = link_to "http://twitter.com/#{@event.owner.nickname}" do
-        = image_tag @event.owner.image_url
-        = "@#{@event.owner.nickname}"
-    - else
-      退会したユーザーです。
-    span &nbsp;
-    - if @event.created_by?(current_user)
-      = link_to 'イベントを編集する', edit_event_path(@event), class: 'ui button'
-
+  .ui.attached.segment
+    .ui.divided.list
+      - if @event.owner
+        = link_to "http://twitter.com/#{@event.owner.nickname}", class: 'item' do
+          = image_tag @event.owner.image_url, classs: 'ui avatar image'
+          .content
+            = "@#{@event.owner.nickname}"
+      - else
+        退会したユーザーです。
+      span &nbsp;
+      - if @event.created_by?(current_user)
+        = link_to 'イベントを編集する', edit_event_path(@event), class: 'ui button'
 p.ui.attached.header
   |
     開催時間
