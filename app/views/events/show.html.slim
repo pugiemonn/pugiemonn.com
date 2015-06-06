@@ -63,13 +63,10 @@ p.ui.attached.header
         退会したユーザーです。
 p.ui.attached.header
   | URL
-ul.ui.attached.segment
+p.ui.attached.segment
   = link_to 'リンク', @event.event_url, target: "_blank"
 
-
-br
-
-
-= link_to t(".back"), events_path, class: 'ui button'
+p.block
+  = link_to t(".back"), events_path, class: 'ui button'
 |
 

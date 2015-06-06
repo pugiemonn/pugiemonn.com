@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "semantic-ui";
 
 //input[type=text] {
@@ -23,6 +24,9 @@
   margin: 1.5em;
 }
 
+.block {
+  padding: 3em 0 0;
+}
 @media(max-width: 720px) {
   .container {
     margin: 0.8em;
