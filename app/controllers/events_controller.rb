@@ -22,6 +22,10 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    # 1日に3件までしか作れない
+    if Event.where(owner_id: current_user).where("created_at > ?", Time.now - 60 * 60 * 24).count > 2
+      redirect_to root_path, notice: "１日に作成できるイベントは３つです。"
+    end
     @event = current_user.created_events.build
     @event.service = "pugiemonn"
   end
