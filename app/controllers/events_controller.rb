@@ -33,6 +33,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    if Event.where(owner_id: current_user).where("created_at > ?", Time.now - 60 * 60 * 24).count > 2
+      redirect_to root_path, notice: "１日に作成できるイベントは３つです。"
+    end
     @event = current_user.created_events.build(event_params)
 
     #binding.pry
