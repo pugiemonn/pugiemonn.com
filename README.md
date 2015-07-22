@@ -35,7 +35,7 @@
 # やること
 ## イシューの書き方
 下記のリンクからテンプレートを使って作成できます
-- [機能要望](https://github.com/pugiemonn/pugiemonn.com/issues/new?title=%5B%E6%A9%9F%E8%83%BD%E8%BF%BD%E5%8A%A0%5D&body=%23%23+%E8%83%8C%E6%99%AF++%23%23+%E5%95%8F%E9%A1%8C+or+%E8%AA%B2%E9%A1%8C++%23%23+%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8)
+[機能要望](https://github.com/pugiemonn/pugiemonn.com/issues/new?title=%5B%E6%A9%9F%E8%83%BD%E8%BF%BD%E5%8A%A0%5D&body=%23%23+%E8%83%8C%E6%99%AF++%23%23+%E5%95%8F%E9%A1%8C+or+%E8%AA%B2%E9%A1%8C++%23%23+%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8)  
 ## 一般ユーザー
 ### イベントをタグで検索したい。
 ### イベントに参加したい。
