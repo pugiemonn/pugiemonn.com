@@ -28,12 +28,12 @@ p.ui.attached.header
   |
     開催場所
 p.ui.attached.segment
-  = @event.place
+  = text_url_to_link(@event.place).html_safe
 p.ui.attached.header
   |
     イベント内容
 p.ui.attached.segment
-  = @event.catch
+  = text_url_to_link(@event.catch).html_safe
 
 p.ui.attached.header
   | 参加
