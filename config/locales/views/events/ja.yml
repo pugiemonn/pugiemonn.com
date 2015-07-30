@@ -8,5 +8,6 @@ ja:
       back: もどる
       join: 参加する
     form:
+      limit: 人数上限
       place: 場所
       title: タイトル
