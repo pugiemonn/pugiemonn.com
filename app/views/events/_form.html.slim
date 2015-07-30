@@ -28,9 +28,9 @@
     .field
       = f.label :catch
       = f.text_area :catch, class: "form-control", row:5
-    /.field
-      /= f.label "URL"
-      /= f.text_field :event_url
+    .field
+      = f.label t(".limit")
+      = f.text_field :limit
     .field
       = f.label "タグリスト"
       = f.text_field :tag_list

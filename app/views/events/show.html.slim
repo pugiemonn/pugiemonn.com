@@ -36,7 +36,8 @@ p.ui.attached.segment
   = text_url_to_link(@event.catch).html_safe
 
 p.ui.attached.header
-  | 参加
+  = "参加  " + @tickets.count.to_s + "人 / " + @event.limit.to_s + "人 "
+        /| 参加
 p.ui.attached.segment
   - if @event.service != "pugiemonn"
     - if @event.event_url
@@ -49,7 +50,7 @@ p.ui.attached.segment
     - else
       = link_to "参加する", new_event_ticket_path(@event), class: "ui button"
 p.ui.attached.header
-  | 参加者
+  | 参加希望者
 .ui.attached.segment
   .ui.divided.relaxed.horizontal.list
     - @tickets.each do |ticket|
