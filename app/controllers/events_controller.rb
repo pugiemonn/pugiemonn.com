@@ -61,12 +61,19 @@ class EventsController < ApplicationController
   def update
     @event = current_user.created_events.find(params[:id])
     respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: '更新しました' }
-        format.json { render :show, status: :ok, location: @event }
+
+      # 参加制限数が、既に発行されているチケット数より少ない場合はエラー
+      if event_params["limit"].to_i < @event.tickets.count
+        format.html { redirect_to @event, notice: '参加者の人数以下にイベント上限人数を設定することはできません。' }
+        format.json { render json: @event.errors, status: 500 }
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        if @event.update(event_params)
+          format.html { redirect_to @event, notice: '更新しました' }
+          format.json { render :show, status: :ok, location: @event }
+        else
+          format.html { render :edit }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
