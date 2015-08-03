@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   validates :title, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
   validates :catch, length: { maximum: 2000 }, presence: true
-  validates :limit, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: 100 }, presence: true
+  validates :limit, numericality: { only_integer: true, greater_than: 2, less_than_or_equal_to: 100 }, presence: true
   validates :started_at, presence: true
   validates :ended_at, presence: true
   #validates :event_url, presence: true, uniqueness: true
