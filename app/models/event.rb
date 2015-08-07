@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
 
   # イベント一覧を取得
   def self.event_lists(params)
-    Event.page(params[:page]).per(PER).order(id: :desc).limit(10)
+    Event.page(params[:page]).per(PER).order(id: :desc).limit(PER)
   end
 
   def self.tagged_with(name)

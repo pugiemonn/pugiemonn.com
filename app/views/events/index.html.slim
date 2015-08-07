@@ -4,6 +4,7 @@
   h1 = t ".event_list"
 
   .ui.divided.selection.list
+    / イベント一覧
     - @events.each do |event|
       .item
         - if event.owner
@@ -17,5 +18,11 @@
         - elsif event.service == "doorkeeper"
           img src="https://pbs.twimg.com/profile_images/1231447879/dk_bigger.png" class="ui avatar image"
         .content
-          = link_to event.title, event, class: "header"
+          / イベントのリンク
+          = link_to event, class: "header" do
+            = event.title
+            - if event.ended_at < Time.now
+              = content_tag :span, t("general.end"), class: "ui gray label"
+
+
   = paginate @events
