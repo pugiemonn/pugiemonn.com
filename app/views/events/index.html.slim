@@ -21,8 +21,8 @@
           / イベントのリンク
           = link_to event, class: "header" do
             = event.title
-            - if event.ended_at < Time.now
-              = content_tag :span, t("general.end"), class: "ui gray label"
+            / イベント終了のラベル
+            = content_tag :span, t("general.end"), class: "ui gray label" if is_ended?(event.ended_at)
 
 
   = paginate @events

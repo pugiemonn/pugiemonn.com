@@ -39,24 +39,34 @@ p.ui.attached.header
   = "参加  " + @tickets.count.to_s + "人 / " + @event.limit.to_s + "人 "
         /| 参加
 p.ui.attached.segment
+  / 外部サイトの場合、リンクを提供します。
   - if @event.service != "pugiemonn"
     - if @event.event_url
       = link_to t(".join"), @event.event_url, class: "ui blue button"
+  / イベントが終了している場合
+  - elsif is_ended?(@event.ended_at)
+    | 開催終了
   - else
+    / チケット発行済
     - if @ticket
-      = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: 'ui button'
+      = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete, class: "ui button"
+    / チケットがなくログインしている場合
     - elsif logged_in?
-      = link_to "参加する", new_event_ticket_path(@event), class: 'ui blue button'
+      = link_to "参加する", new_event_ticket_path(@event), class: "ui blue button"
+    / チケットがなくログインしていない場合
     - else
       = link_to "参加する", new_event_ticket_path(@event), class: "ui button"
 p.ui.attached.header
-  | 参加希望者
+  - if is_ended?(@event.ended_at)
+    | 参加者
+  - else
+    | 参加希望者
 .ui.attached.segment
   .ui.divided.relaxed.horizontal.list
     - @tickets.each do |ticket|
       - if ticket.user
         .item
-          = image_tag ticket.user.image_url, width: 20, height: 20, class: 'ui top aligned avatar image'
+          = image_tag ticket.user.image_url, width: 20, height: 20, class: "ui top aligned avatar image"
           .content
             .header
               = link_to "@#{ticket.user.nickname}", url_for_twitter(ticket.user)
@@ -69,6 +79,6 @@ p.ui.attached.segment
   = link_to 'リンク', @event.event_url, target: "_blank"
 
 p.block
-  = link_to t(".back"), events_path, class: 'ui button'
+  = link_to t(".back"), events_path, class: "ui button"
 |
 
