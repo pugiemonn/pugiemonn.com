@@ -221,3 +221,6 @@ ja:
       title: コミュニティ一覧
       create_community: コミュニティを作る
     show:
+  general:
+    end: 終了
+    start: 開始
