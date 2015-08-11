@@ -12,11 +12,6 @@ module ApplicationHelper
     return text
   end
 
-  # 終了していたら trueを返す
-  def is_ended?(ended_at)
-    ended_at < Time.now ? true : false
-  end
-
   def url_for_twitter(user)
     "https://twitter.com/#{user.nickname}"
   end

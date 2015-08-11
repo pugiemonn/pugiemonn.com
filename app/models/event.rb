@@ -65,6 +65,11 @@ class Event < ActiveRecord::Base
     end
   end
 
+  # イベントが終了していたら trueを返す
+  def ended?
+    self.ended_at < Time.now
+  end
+
   private
 
   def start_time_should_be_before_end_time
