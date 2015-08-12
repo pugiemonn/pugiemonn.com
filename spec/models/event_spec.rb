@@ -24,13 +24,8 @@ require 'rails_helper'
 
 describe Event do
   describe '#title' do
-    context '空白の時' do
-      it 'validでないこと' do
-        event = Event.new(title: '')
-        event.valid?
-        expect(event.errors[:title]).to be_present
-      end
-    end
+    it { should validate_presence_of(:title) }
+    it { should ensure_length_of(:title).is_at_most(50) }
   end
 end
 
