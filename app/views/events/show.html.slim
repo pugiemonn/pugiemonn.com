@@ -36,7 +36,7 @@ p.ui.attached.segment
   = text_url_to_link(@event.catch).html_safe
 
 p.ui.attached.header
-  = "参加  " + @tickets.count.to_s + "人 / " + @event.limit.to_s + "人 "
+  = "参加  " + @tickets.count.to_s + "人 / " + @event.tickets_limit.to_s + "人 "
         /| 参加
 p.ui.attached.segment
   / 外部サイトの場合、リンクを提供します。
