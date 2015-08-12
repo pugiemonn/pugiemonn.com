@@ -22,7 +22,11 @@
 
 FactoryGirl.define do
   factory :event do
-    
+    owner
+    sequence(:title) { |i| "イベント名#{i}" }
+    sequence(:place) { |i| "イベント開催場所#{i}" }
+    sequence(:catch) { |i| "イベント本文#{i}" }
+    started_at { rand(1..30).days.from_now }
+    ended_at { started_at + rand(1..30).hours }
   end
-
 end
