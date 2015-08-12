@@ -22,6 +22,15 @@
 
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Event do
+  describe '#title' do
+    context '空白の時' do
+      it 'validでないこと' do
+        event = Event.new(title: '')
+        event.valid?
+        expect(event.errors[:title]).to be_present
+      end
+    end
+  end
 end
+
