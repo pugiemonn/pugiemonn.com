@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503231246) do
+ActiveRecord::Schema.define(version: 20150812225828) do
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "service",    limit: 255
-    t.string   "address",    limit: 255
-    t.string   "event_url",  limit: 255
-    t.text     "catch",      limit: 65535
-    t.decimal  "lon",                      precision: 10
-    t.decimal  "lat",                      precision: 10
+    t.string   "title",         limit: 255
+    t.string   "service",       limit: 255
+    t.string   "address",       limit: 255
+    t.string   "event_url",     limit: 255
+    t.text     "catch",         limit: 65535
+    t.decimal  "lon",                         precision: 10
+    t.decimal  "lat",                         precision: 10
     t.datetime "started_at"
     t.datetime "ended_at"
-    t.string   "place",      limit: 255
-    t.integer  "limit",      limit: 4
-    t.integer  "accepted",   limit: 4
-    t.integer  "waiting",    limit: 4
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "owner_id",   limit: 4
+    t.string   "place",         limit: 255
+    t.integer  "tickets_limit", limit: 4
+    t.integer  "accepted",      limit: 4
+    t.integer  "waiting",       limit: 4
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "owner_id",      limit: 4
   end
 
   add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree

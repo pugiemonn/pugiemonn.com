@@ -13,7 +13,7 @@
 #  started_at :datetime
 #  ended_at   :datetime
 #  place      :string(255)
-#  limit      :integer
+#  tickets_limit      :integer
 #  accepted   :integer
 #  waiting    :integer
 #  created_at :datetime         not null
@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   validates :title, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
   validates :catch, length: { maximum: 2000 }, presence: true
-  validates :limit, numericality: { only_integer: true, greater_than: 2, less_than_or_equal_to: 100 }, presence: true
+  validates :tickets_limit, numericality: { only_integer: true, greater_than: 2, less_than_or_equal_to: 100 }, presence: true
   validates :started_at, presence: true
   validates :ended_at, presence: true
   #validates :event_url, presence: true, uniqueness: true
@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
 
   # イベント一覧を取得
   def self.event_lists(params)
-    Event.page(params[:page]).per(PER).order(id: :desc).limit(PER)
+    Event.page(params[:page]).per(PER).order(id: :desc)
   end
 
   def self.tagged_with(name)

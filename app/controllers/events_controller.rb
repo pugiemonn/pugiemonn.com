@@ -63,7 +63,7 @@ class EventsController < ApplicationController
     respond_to do |format|
 
       # 参加制限数が、既に発行されているチケット数より少ない場合はエラー
-      if event_params["limit"].to_i < @event.tickets.count
+      if event_params["tickets_limit"].to_i < @event.tickets.count
         format.html { redirect_to @event, notice: '参加者の人数以下にイベント上限人数を設定することはできません。' }
         format.json { render json: @event.errors, status: 500 }
       else
@@ -97,6 +97,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :limit, :tag_list, :service)
+      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :tickets_limit, :tag_list, :service)
     end
 end

@@ -29,7 +29,7 @@ class Batch::GetApi
           place: (e.place).blank? ? "開催場所が指定されていません。" : "#{e.place}",
           lon: "#{e.lon}",
           lat: "#{e.lat}",
-          limit: "#{e.limit}",
+          tickets_limit: "#{e.limit}",
           accepted: "#{e.accepted}",
           waiting: "#{e.waiting}"
       )
