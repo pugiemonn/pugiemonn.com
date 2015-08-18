@@ -6,7 +6,7 @@ ja:
     attributes:
       event:
         catch: 内容
-        ended_at: 終了内容
+        ended_at: 終了時間
         name: 名前
         place: 場所
         started_at: 開始時間
