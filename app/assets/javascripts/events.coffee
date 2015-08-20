@@ -3,8 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("button[data-attend-event]").click ->
-    $('.modal').modal(
-      closable : false
-      useCSS : false
-    ).modal('show')
+  $("#js-started_at").datetimepicker(
+    inline: true
+    lang: 'ja'
+    step:10
+  )
+
+$ ->
+  $("#js-ended_at").datetimepicker(
+    inline: true
+    lang: 'ja'
+    step:10
+  )

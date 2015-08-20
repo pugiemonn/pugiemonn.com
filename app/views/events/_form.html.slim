@@ -19,18 +19,16 @@
       = f.text_field :place, placeholder: t(".place")
     .field
       = f.label :started_at
-      .five.fields
-        = f.datetime_select :started_at, {start_year: now.year, end_year: now.year + 1}, { :class =>  "hoge" }
+      = f.text_field :started_at, id:'js-started_at', value: now
     .field
       = f.label :ended_at
-      .five.fields
-        = f.datetime_select :ended_at, start_year: now.year, end_year: now.year + 1
+      = f.text_field :ended_at, id: 'js-ended_at', value: now
     .field
       = f.label :catch
       = f.text_area :catch, class: "form-control", row:5
     .field
-      = f.label t(".limit")
-      = f.text_field :limit
+      = f.label t(".tickets_limit")
+      = f.text_field :tickets_limit
     .field
       = f.label "タグリスト"
       = f.text_field :tag_list

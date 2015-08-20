@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
   def create
 
     # 上限に達していたらチケットは購入できない
-    if Event.find(params[:event_id]).limit <= Ticket.where(event_id: params[:event_id]).count
+    if Event.find(params[:event_id]).tickets_limit <= Ticket.where(event_id: params[:event_id]).count
       flash[:notice] = 'イベントの空き枠がありません。'
     else
       ticket = current_user.tickets.build do |t|
