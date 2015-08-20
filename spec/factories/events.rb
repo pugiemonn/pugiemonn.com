@@ -26,7 +26,7 @@ FactoryGirl.define do
     sequence(:title) { |i| "イベント名#{i}" }
     sequence(:place) { |i| "イベント開催場所#{i}" }
     sequence(:catch) { |i| "イベント本文#{i}" }
-    #sequence(:tickets_limit) { |i| "{i}" }
+    sequence(:tickets_limit) { |i| rand(3..99) }
     started_at { rand(1..30).days.from_now }
     ended_at { started_at + rand(1..30).hours }
   end
