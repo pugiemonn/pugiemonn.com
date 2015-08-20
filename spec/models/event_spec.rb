@@ -26,6 +26,23 @@ describe Event do
   describe '#title' do
     it { should validate_presence_of(:title) }
     it { should ensure_length_of(:title).is_at_most(50) }
+    context '空白の時' do
+      it 'validでないこと' do
+        event = Event.new(title: '')
+        event.valid?
+        expect(event.errors[:title]).to be_present
+      end
+    end
+  end
+
+  describe '#created_by?' do
+    let(:event) { create(:event) }
+    subject { event.created_by?(user) }
+
+    context '引数がnilなとき' do
+      let(:user) { :nil }
+      it { should be_falsey }
+    end
   end
 end
 
