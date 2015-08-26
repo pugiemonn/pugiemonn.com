@@ -36,7 +36,7 @@
 ## イシューの書き方
 下記のリンクからテンプレートを使って作成できます。  
 - [機能要望](https://github.com/pugiemonn/pugiemonn.com/issues/new?title=%5B%E6%A9%9F%E8%83%BD%E8%BF%BD%E5%8A%A0%5D&body=%23%23+%E8%83%8C%E6%99%AF++%0A%0A%23%23+%E5%95%8F%E9%A1%8C+or+%E8%AA%B2%E9%A1%8C++%0A%0A%23%23+%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8)
-- [バグ報告](https://github.com/pugiemonn/pugiemonn.com/issues/new?title=%5B%E3%83%90%E3%82%B0%E5%A0%B1%E5%91%8A%5D&body=%23%23%23%23%20%E7%99%BA%E7%94%9F%E7%8F%BE%E8%B1%A1%0D%0A%0D%0A
+- [バグ報告](https://github.com/pugiemonn/pugiemonn.com/issues/new?title=%5B%E3%83%90%E3%82%B0%E5%A0%B1%E5%91%8A%5D&body=%23%23%23%23%20%E7%99%BA%E7%94%9F%E7%8F%BE%E8%B1%A1%0D%0A%0D%0A)
 
 ## プルリクエストの書き方
 ```
