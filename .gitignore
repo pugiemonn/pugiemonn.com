@@ -15,3 +15,5 @@
 *.iml
 db/.nfs*
 vendor/*
+
+/node_modules
