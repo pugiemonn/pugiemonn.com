@@ -246,6 +246,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  meta-tags
   mysql2
   omniauth
   omniauth-twitter
