@@ -33,6 +33,8 @@ gem 'semantic-ui-sass'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem 'public_activity'
+
 # meta-tag
 gem 'meta-tags'
 
