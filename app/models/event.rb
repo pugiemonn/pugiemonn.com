@@ -21,6 +21,9 @@
 #
 
 class Event < ActiveRecord::Base
+  #include PublicActivity::Model
+  #tracked
+
   validates :title, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
   validates :catch, length: { maximum: 2000 }, presence: true
