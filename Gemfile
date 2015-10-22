@@ -38,6 +38,9 @@ gem 'public_activity'
 # meta-tag
 gem 'meta-tags'
 
+# activity
+gem 'public_activity'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
