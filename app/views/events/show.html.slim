@@ -9,7 +9,7 @@ h1.ui.dividing.header
     .ui.divided.list
       - if @event.owner
         = link_to "http://twitter.com/#{@event.owner.nickname}", class: 'item' do
-          = image_tag @event.owner.image_url, classs: 'ui avatar image'
+          = image_tag @event.owner.image_url, classs: 'ui avatar image', width: 30, height: 30
           .content
             = "@#{@event.owner.nickname}"
       - else
