@@ -4,14 +4,12 @@
 
 $ ->
   $("#js-started_at").datetimepicker(
-    inline: true
     lang: 'ja'
     step:10
   )
 
 $ ->
   $("#js-ended_at").datetimepicker(
-    inline: true
     lang: 'ja'
     step:10
   )
