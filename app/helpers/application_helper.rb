@@ -12,6 +12,10 @@ module ApplicationHelper
     return text
   end
 
+  def nl2br(str)
+    return sanitize(str).gsub("\n", '<br>').html_safe
+  end
+
   # 終了していたら trueを返す
   def is_ended?(ended_at)
     ended_at < Time.now ? true : false

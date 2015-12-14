@@ -33,7 +33,7 @@ p.ui.attached.header
   |
     イベント内容
 p.ui.attached.segment
-  = text_url_to_link(@event.catch).html_safe
+  = nl2br(text_url_to_link(@event.catch).html_safe)
 
 p.ui.attached.header
   = "参加  " + @tickets.count.to_s + "人 / " + @event.tickets_limit.to_s + "人 "
