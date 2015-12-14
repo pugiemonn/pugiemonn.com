@@ -19,10 +19,10 @@
       = f.text_field :place, placeholder: t(".place")
     .field
       = f.label :started_at
-      = f.text_field :started_at, id:'js-started_at', value: now
+      = f.text_field :started_at, id:'js-started_at'
     .field
       = f.label :ended_at
-      = f.text_field :ended_at, id: 'js-ended_at', value: now
+      = f.text_field :ended_at, id: 'js-ended_at'
     .field
       = f.label :catch
       = f.text_area :catch, class: "form-control", row:5
