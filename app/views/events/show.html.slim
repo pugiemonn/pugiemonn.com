@@ -28,7 +28,7 @@ p.ui.attached.header
   |
     開催場所
 p.ui.attached.segment
-  = text_url_to_link(@event.place).html_safe
+  = nl2br(text_url_to_link(@event.place.html_safe))
 p.ui.attached.header
   |
     イベント内容
@@ -81,4 +81,3 @@ p.ui.attached.segment
 p.block
   = link_to t(".back"), events_path, class: "ui button"
 |
-
