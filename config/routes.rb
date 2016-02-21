@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :comments
+
   #get 'welcome/index'
 
   root to: "events#index"
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   resources :activities
   resources :events do
     resources :tickets
+    resources :comments
   end
 
   resource :user do
