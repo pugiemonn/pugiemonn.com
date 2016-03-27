@@ -38,6 +38,11 @@ gem 'meta-tags'
 
 gem 'rails_12factor'
 
+# admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'rails-i18n'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
