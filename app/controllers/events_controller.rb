@@ -38,9 +38,15 @@ class EventsController < ApplicationController
     end
     @event = current_user.created_events.build(event_params)
 
-    #binding.pry
     respond_to do |format|
       if @event.save
+
+        ticket = current_user.tickets.build do |t|
+          t.event_id = @event.id
+          t.comment  = ''
+        end
+        ticket.save
+
         format.html { redirect_to @event, notice: '作成しました' }
         format.json { render :show, status: :created, location: @event }
       else
