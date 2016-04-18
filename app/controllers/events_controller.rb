@@ -27,6 +27,7 @@ class EventsController < ApplicationController
       redirect_to root_path, notice: "１日に作成できるイベントは３つです。"
     end
     @event = current_user.created_events.build
+    @event.tickets.build
     @event.service = "pugiemonn"
   end
 
@@ -37,12 +38,17 @@ class EventsController < ApplicationController
       redirect_to root_path, notice: "１日に作成できるイベントは３つです。"
     end
     @event = current_user.created_events.build(event_params)
+    # @event.tickets.build
 
     #binding.pry
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: '作成しました' }
         format.json { render :show, status: :created, location: @event }
+        # binding.pry
+        ticket = current_user.tickets.build
+        ticket.event_id = @event.id
+        ticket.save
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -97,6 +103,8 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :tickets_limit, :tag_list, :service)
+      params.require(:event).permit(:title, :place, :event_url, :started_at, :ended_at, :catch, :tickets_limit, :tag_list, :service, posts_attributes:[
+
+        ])
     end
 end
