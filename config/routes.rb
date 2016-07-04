@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
   #get 'welcome/index'
 
   root to: "events#index"
+  # get "/auth/:provider" => "sessions#create"
   get "/auth/:provider/callback" => "sessions#create"
   get "/logout" => "sessions#destroy", as: :logout
 
