@@ -39,7 +39,8 @@ gem 'meta-tags'
 gem 'rails_12factor'
 
 # admin
-# gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise'
 gem 'rails-i18n'
 
