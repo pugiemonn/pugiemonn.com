@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  provider   :string(255)      not null
+#  uid        :string(255)      not null
+#  nickname   :string(255)      not null
+#  image_url  :string(255)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class User < ActiveRecord::Base
   before_destroy :check_all_events_finished
 
