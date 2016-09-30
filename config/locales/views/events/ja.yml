@@ -7,6 +7,8 @@ ja:
     show:
       back: もどる
       join: 参加する
+      delete_confirm: 本当に削除しますか？
+      delete: イベントを削除する
     form:
       place: 場所
       tickets_limit: 人数上限
