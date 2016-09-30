@@ -25,8 +25,8 @@ require 'rails_helper'
 
 describe Event do
   describe '#title' do
-    it { should validate_presence_of(:title) }
-    it { should ensure_length_of(:title).is_at_most(50) }
+    # it { should validate_presence_of(:title) }
+    # it { should ensure_length_of(:title).is_at_most(50) }
 
     # @ttakuru88 said "俺の考えた最強のspec"
     context '空白の時' do
@@ -53,4 +53,3 @@ describe Event do
     end
   end
 end
-
