@@ -59,6 +59,8 @@ group :development, :test do
   gem 'yard'
   gem 'annotate'
 
+  gem "bugsnag"
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   #gem 'web-console', '~> 2.0'
 
@@ -72,7 +74,7 @@ group :development, :test do
   #
   # gem 'better_errors'
   # #gem 'bullet'
-  # gem 'pry-rails'
+  gem 'pry-rails'
   # gem 'quiet_assets'
   # gem 'rack-mini-profiler'
   # gem 'rails_best_practices'
