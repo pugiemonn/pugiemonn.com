@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   #validates :event_url, presence: true, uniqueness: true
   PER = 10
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :tickets
   accepts_nested_attributes_for :tickets
