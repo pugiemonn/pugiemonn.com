@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    env_file: .env
+    command: bundle exec rails server -b 0.0.0.0
+    volumes:
+      - .:/opt/pugiemonn.com
+    ports:
+      - "4444:3000"
+    links:
+      - db
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=pugiemonn_com_development
