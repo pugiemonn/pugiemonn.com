@@ -36,3 +36,13 @@ services:
       - DB_DATABASE=pugiemonn
       - DB_USERNAME=root
       - DB_PASSWORD=pass
+  composer:
+    image: composer:latest
+    volumes:
+      - ./laravel:/var/www/laravel
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    env_file: .env
+    command: install
