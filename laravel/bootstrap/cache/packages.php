@@ -6,13 +6,6 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
-  'fideloper/proxy' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
-    ),
-  ),
   'laravel/legacy-factories' => 
   array (
     'providers' => 
