@@ -1,11 +1,4 @@
 <?php return array (
-  'beyondcode/laravel-dump-server' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
-    ),
-  ),
   'laravel/legacy-factories' => 
   array (
     'providers' => 
@@ -25,18 +18,6 @@
     'providers' => 
     array (
       0 => 'Laravel\\Ui\\UiServiceProvider',
-    ),
-  ),
-  'laravelcollective/html' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Collective\\Html\\HtmlServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Form' => 'Collective\\Html\\FormFacade',
-      'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
   'nesbot/carbon' => 
@@ -62,13 +43,13 @@
   ),
   'spatie/laravel-ignition' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    ),
     'aliases' => 
     array (
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
+    ),
+    'providers' => 
+    array (
+      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
     ),
   ),
   'tymon/jwt-auth' => 
